@@ -4,9 +4,25 @@ const Product = require("../models/Products")
 exports.addProduct = async (req, res) => {
     
     try {
-      const data = req.body
+      const data = {
+        productName:req.body.productName,
+        description:req.body.description,
+        regular_price: req.body.regular_price,
+        sell_price:req.body.sell_price,
+        category:req.body. category,
+        createdAt:req.body.createdAt,
+        updatedAt:req.body.updatedAt,
+        brand:req.body.brand,
+        quantity:req.body.quantity,
+        status_active:req.body.status_active,
+        enableReviews:req.body. enableReviews
+
+      }
         
-          
+      if (req.file) {
+        data.thumbnail = req.file.filename;
+        console.log(req.file, "i file");
+      }
       const newProduct = new Product(data);
       const result  =  await  newProduct.save();
       return res.status(201).json({error:'',data:result});

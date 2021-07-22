@@ -16,6 +16,8 @@ app.use('/users',require('./routes/user'))
 app.use('/product',require('./routes/product'))
 app.use('/brand',require('./routes/brand'))
 app.use('/category',require('./routes/category'))
+app.use('/address',require('./routes/address'))
+app.use('/order',require('./routes/order'))
 
 // const path = require('path')
 // app.use(express.static(path.join(__dirname, 'client/build')))

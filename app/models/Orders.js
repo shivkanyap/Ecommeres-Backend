@@ -14,21 +14,38 @@ const orderSchema = new mongoose.Schema({
     ref: "user",
   },
   billingAddressId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Address",
   },
   shippingAddressId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Address",
   },
   order_status: {
     type: String,
-    enum: ['Packed','Shipped','Delivered'],
+    enum: [
+      "Ordered",
+      "Packaged",
+      "Dispacthed",
+      "Delivered",
+      "Return Request",
+      "Return Request accepted",
+      "Return Request declined",
+      "Returned",
+      "Exchange Requested",
+      "Exchange Request Accepted",
+      "Exchange Request Cancelled",
+      "Exchanged",
+      "Completed",
+      "Cancelled",
+    ],
   },
   discountApplied: {
     type: Number,
   },
 
   createdAt: {
-    type: Date(),
+    type: Date,
     default: Date.now(),
   },
   quantity: {
@@ -44,7 +61,6 @@ const orderSchema = new mongoose.Schema({
   shippingCost: {
     type: Number,
   },
-  
 });
 
 module.exports = mongoose.model("Order", orderSchema);
