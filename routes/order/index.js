@@ -4,7 +4,7 @@ const {authenticateUser} = require('../../app/middleware/authentication')
 const {adminAccess} = require('../../app/middleware/access')
 
 
-router.post('/addOrder',authenticateUser,adminAccess,addOrders)
+router.post('/addOrder',authenticateUser,addOrders)
 router.get('/getOrder',authenticateUser,getOrder)
 router.delete('/deleteOrder',authenticateUser,deleteOrder)
 router.patch('/editOrder',authenticateUser,adminAccess,editOrder)

@@ -45,8 +45,9 @@ exports.getAccount=(req,res)=>{
 }
 
 
-router.userlogout=(req,res)=>{
+exports.userlogout=(req,res)=>{
     const {user,token}=req
+    console.log('user',user,'token',token)
     User.findByIdAndUpdate(user._id,{$pull:{tokens:{token:token}}})
     .then(function(user){
         res.send({notice:'successfully logout...'})

@@ -43,6 +43,9 @@ const orderSchema = new mongoose.Schema({
   discountApplied: {
     type: Number,
   },
+  unit_price:{
+    type:Number
+  },
 
   createdAt: {
     type: Date,
@@ -61,6 +64,10 @@ const orderSchema = new mongoose.Schema({
   shippingCost: {
     type: Number,
   },
+  total_amount:{
+    type:Number,
+    required:true
+  }
 });
 
 module.exports = mongoose.model("Order", orderSchema);
